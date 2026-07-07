@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+</head>
+<body>
+  <input type="text" id="display" disabled placeholder="0">
+  <div>
+    <button onclick="updateCalculation('1')">1</button>
+    <button onclick="updateCalculation('2')">2</button>
+    <button onclick="updateCalculation('3')">3</button>
+    <button onclick="updateCalculation(' + ')">+</button>
+  </div>
+  <div>
+    <button onclick="updateCalculation('4')">4</button>
+    <button onclick="updateCalculation('5')">5</button>
+    <button onclick="updateCalculation('6')">6</button>
+    <button onclick="updateCalculation(' - ')">-</button>
+  </div>
+  <div>
+    <button onclick="updateCalculation('7')">7</button>
+    <button onclick="updateCalculation('8')">8</button>
+    <button onclick="updateCalculation('9')">9</button>
+    <button onclick="updateCalculation(' * ')">*</button>
+  </div>
+  <div>
+    <button onclick="updateCalculation('0')">0</button>
+    <button onclick="updateCalculation('.')">.</button>
+    <button onclick="equal()">=</button>
+    <button onclick="updateCalculation(' ÷ ')">÷</button>
+  </div>
+  <div>
+    <button onclick="clearCalculation()">C</button>
+    <button onclick="deleteLast()">⌫</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buttons</title>
+</head>
+<body>
+  <button class="btn btn1">Button Up</button>
+  <button class="btn btn2">Button Down</button>
+  <button class="btn btn3">Clear</button>
+
+  <div id="counter">0</div>
+
+
+  <script>
+    const btn1 = document.querySelector('.btn1');
+    const btn2 = document.querySelector('.btn2');
+    const btn3 = document.querySelector('.btn3');
+    const counter = document.getElementById('counter');
+    let count = 0;
+
+    btn1.addEventListener('click', () => {
+      count++;
+      counter.textContent = count;
+    })
+
+    btn2.addEventListener('click', () => {
+      if (count < 1) return;
+      count--;
+      counter.textContent = count;
+    })
+
+    btn3.addEventListener('click', () => {
+      count = 0;
+      counter.textContent = count;
+    })
+  </script>
+</body>
+</html>
