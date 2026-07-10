@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+body {
+  min-height: 100dvh;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  /* soft multi-stop gradient - no images */
+  background: linear-gradient(135deg, #071228 0%, #0b3652 35%, #0f6a8f 100%);
+  background-attachment: fixed;
+}
+
+/* subtle layered lighting and vignette */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(ellipse at 10% 20%, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.00) 25%),
+    radial-gradient(ellipse at 90% 80%, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.00) 30%),
+    linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.28));
+  mix-blend-mode: overlay;
+}
+
+/* optional gentle animated sheen - subtle movement */
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,0.01), rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  opacity: 0.6;
+  transform: translateX(-25%);
+  filter: blur(14px);
+  animation: sheen 12s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes sheen {
+  0% { transform: translateX(-25%); }
+  50% { transform: translateX(25%); }
+  100% { transform: translateX(-25%); }
+}
+
+/* Utilities */
+.regular-txt {
+  font-weight: 400;
+}
+
+/* center the main app container and give a subtle glass card feel */
+.main {
+  position: relative;
+  z-index: 1;
+  width: min(420px, 92%);
+  min-height: 500px;
+  padding: 2rem;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  backdrop-filter: blur(8px) saturate(120%);
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.city-input {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 99px;
+  border: 3px solid transparent;
+  background: rgb(0, 0, 0, 0.15);
+  outline: none;
+  font-weight: 500;
+  transition: 0.25s border;
+  color: white;
+  padding-right: 45px;
+}
+
+.city-input:focus {
+  border: 3px solid rgb(0, 0, 0, 0.15);
+}
+
+.city-input::placeholder {
+  color: rgb(255, 255, 255, 0.75)
+}
+
+.search-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  display: flex;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+/* Section Weather Info */
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.location-date-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.weather-summary-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;;
+}
+
+.weather-summary-img {
+  width: 120px;
+  height : 120px;
+}
+
+.weather-summary-info {
+  text-align: end;
+}
+
+.weather-summary-condition {
+  display: flex;
+  justify-content: space-between;
+}
+
+.condition-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.condition-item span {
+  font-size: 30px;
+}
+
+
+.forecast-items-container {
+  display: flex;
+  gap: 15px;
+  overflow: scroll;
+  padding-bottom: 12px;
+}
+
+
+.forecast-item {
+  min-width: 90px;
+  background: rgb(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  align-items: center;
+  border-radius: 12px;
+  transition: 0.3s background;
+}
+
+.forecast-item:hover{ 
+  background: rgb(255, 255, 255, 0.15)
+}
+
+.forecast-item-img {
+  width: 35px;
+  height: 35px;
+}
+
+
+/* SECTION MESSAGE */
+.section-message {
+  display: flex;
+  flex-direction: column;;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  margin-top: 25%;
+}
+
+.section-message img {
+  height: 140px;
+  width: fit-content;
+}
+
+.message-img {
+  opacity: 0.9;
+  filter: brightness(0) saturate(100%) invert(78%) sepia(18%) saturate(900%) hue-rotate(155deg) brightness(95%) contrast(88%);
+}
