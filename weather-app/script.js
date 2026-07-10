@@ -52,7 +52,7 @@ function getWeatherIcon(weatherId) {
 async function getFetchData(endPoint, city) {
   // We proxy weather requests through our backend to keep the API key secret.
   try {
-    const apiUrl = `/api/weather?city=${encodeURIComponent(city)}`;
+    const apiUrl = `http://localhost:3000/api/weather?city=${encodeURIComponent(city)}`;
     const response = await fetch(apiUrl);
     const data = await response.json();
     return data;
@@ -65,7 +65,7 @@ async function getFetchData(endPoint, city) {
 async function updateWeatherInfo(city) {
   const weatherData = await getFetchData('weather', city);
 
-  if (weatherData.cod !== 200) {
+  if (!weatherData || weatherData.cod !== 200) {
     showDisplaySection(notFoundSection);
     return;
   }

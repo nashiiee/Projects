@@ -5,6 +5,13 @@ const fetch = (...args) => import('node-fetch').then(m => m.default(...args));
 const app = express();
 const KEY = process.env.OPENWEATHER_KEY;
 
+// Allow CORS so frontend on different port can call this proxy
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
 app.get('/api/weather', async (req, res) => {
   const city = req.query.city;
   if (!city) return res.status(400).json({ message: 'city required' });
